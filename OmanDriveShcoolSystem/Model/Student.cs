@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace OmanDriveShcoolSystem.Model
 {
+
+
     public class Student
     {
         public enum Licensetype
@@ -14,8 +17,6 @@ namespace OmanDriveShcoolSystem.Model
             Heavy,
             Motorcycle
         }
-
-
         public string studentId { get; set; }
         public string name { get; set; }
         public int PhoneNo { get; set; }
@@ -32,28 +33,27 @@ namespace OmanDriveShcoolSystem.Model
         public static void addStudent(List<Student> students, ref int studentCounter)
         {
 
-                string indexing = $"ST{studentCounter.ToString("D3")}";
-                studentCounter++; 
+            Console.WriteLine("Enter How many Students : ");
+            int numberOfStudents = Convert.ToInt32(Console.ReadLine());
 
-                Console.Write("Enter Student Name: ");
+
+            for (int i = 0; i < numberOfStudents; i++)
+            {
+                string indexing = $"ST{studentCounter++}";
+                Console.WriteLine("Enter Student Name: ");
                 string stuName = Console.ReadLine();
-
-
-                Console.Write("Enter Phone Number: ");
+                Console.WriteLine("Enter Phone Number: ");
                 int stuPhone = Convert.ToInt32(Console.ReadLine());
-
-
-                Console.Write("Enter License Type (Light / Heavy / Motorcycle): ");
+                Console.WriteLine("Enter License Type (Light / Heavy / Motorcycle): ");
                 string stuLice = Console.ReadLine();
-
-
                 Student.Licensetype license = (Student.Licensetype)Enum.Parse(typeof(Student.Licensetype), stuLice, true);
-
-
                 students.Add(new Student(indexing, stuName, stuPhone, license));
-
-
-                Console.WriteLine($"\nStudent registered with ID: {indexing}\n");  
+                Console.WriteLine("Done Added Students ");
+            }
+            foreach (var student in students)
+            {
+                Console.WriteLine($"ID: {student.studentId}, Name: {student.name}, Phone: {student.PhoneNo}, License: {student.license}");
+            }
 
         }
 
