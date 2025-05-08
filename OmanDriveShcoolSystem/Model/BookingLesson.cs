@@ -21,10 +21,6 @@ namespace OmanDriveShcoolSystem.Model
         public void BookDrivingLesson(List<Student> students, List<Instructor> instructors, string studentId, string InstructorID, string date, string time)
         {
 
-
-            Console.WriteLine("-- Book Driving Lesson --\n");
-
-
             Console.Write("Enter Student ID: ");
             studentId = Console.ReadLine();
 
@@ -38,6 +34,9 @@ namespace OmanDriveShcoolSystem.Model
            }
 
 
+
+              Console.Write("\nEnter Instructor ID: ");
+              InstructorID = Console.ReadLine();
             while (!instructors.Any(ins => ins.InstructorID == InstructorID))
             {
                 Console.WriteLine("\nInstructor ID not found. Please try again.\n");
@@ -45,8 +44,7 @@ namespace OmanDriveShcoolSystem.Model
                 InstructorID = Console.ReadLine();
             }
 
-            Console.Write("\nEnter Instructor ID: ");
-            InstructorID = Console.ReadLine();
+            
 
 
             Console.Write("\nEnter Lesson Date (dd/mm/yyyy): ");
