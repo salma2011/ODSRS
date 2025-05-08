@@ -17,7 +17,8 @@ public class Program
 
 
         List<BookingLesson> bookingLessons = new List<BookingLesson>();
-        while (true)
+        bool isRunning = true;
+        while (isRunning)
         {
 
             Console.WriteLine("1 . Register New Student");
@@ -37,29 +38,32 @@ public class Program
                     Student.addStudent(students, ref studentCounter);
                     break;
                 case 2:
-
+                    Console.WriteLine("\n-- Register New Instructor --");
 
                     break;
                 case 3:
-
+                    Console.WriteLine("\n-- Book Driving Lesson --");
                     BookingLesson bookingLesson = new BookingLesson();
                     bookingLesson.BookDrivingLesson(students, instructor, "", "", "", "");
                     break;
                 case 4:
-
+                    Console.WriteLine("\n-- Record Lesson Completion & Feedback --");
 
                     break;
                 case 5:
-
+                    Console.WriteLine("\n-- View Student Lesson History --");
                     break;
                 case 6:
-
+                    Console.WriteLine("\n-- View All Scheduled Lessons --");
                     break;
                 case 7:
 
+                    isRunning = false;
+                    Console.WriteLine("\nThank you for using Nizwa Driving School System. Goodbye!");
+
                     break;
                 default:
-
+                    Console.WriteLine("\nChoose Corecct Number!\n");
                     break;
 
             }
