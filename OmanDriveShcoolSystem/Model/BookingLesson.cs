@@ -41,10 +41,8 @@ namespace OmanDriveShcoolSystem.Model
                 studentId = Console.ReadLine();
             }
 
-           
-
-              Console.Write("\nEnter Instructor ID: ");
-              InstructorID = Console.ReadLine();
+            Console.Write("\nEnter Instructor ID: ");
+            InstructorID = Console.ReadLine();
             while (!instructors.Any(ins => ins.InstructorID == InstructorID))
             {
                 Console.WriteLine("\nInstructor ID not found. Please try again.\n");
@@ -52,6 +50,7 @@ namespace OmanDriveShcoolSystem.Model
                 InstructorID = Console.ReadLine();
             }
 
+          
 
 
 
@@ -149,6 +148,8 @@ namespace OmanDriveShcoolSystem.Model
                 Console.WriteLine($"[{count++}] Date: {lesson.date} | Time: {lesson.time} | Instructor: {instructorName} | Feedback: {lesson.feedback ?? "No feedback"}");
             }
         }
+
+
 
         public static void ViewAllScheduledLessons(List<BookingLesson> bookingLessons, List<Student> students, List<Instructor> instructors)
         {
